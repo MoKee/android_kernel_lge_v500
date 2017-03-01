@@ -659,7 +659,7 @@ int ping_common_sendmsg(int family, struct msghdr *msg, size_t len,
 		return -EMSGSIZE;
 
 	/* Must have at least a full ICMP header. */
-	if (len < icmph_len)
+	if (len < sizeof(struct icmphdr))
 		return -EINVAL;
 
 	/*
